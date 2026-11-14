@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --canvas: 246 243 238;
+  --card: 255 255 255;
+  --sunk: 238 234 227;
+  --ink: 14 26 43;
+  --muted: 102 112 128;
+  --line: 224 219 210;
+  --brand: 14 26 43;
+  --brand-ink: 255 255 255;
+  --ember: 255 106 61;
+  --ok: 22 130 84;
+  --warn: 180 110 10;
+  --bad: 200 50 50;
+  color-scheme: light;
+}
+
+.dark {
+  --canvas: 9 15 26;
+  --card: 18 28 44;
+  --sunk: 12 20 33;
+  --ink: 235 240 248;
+  --muted: 140 153 173;
+  --line: 36 49 70;
+  --brand: 214 228 250;
+  --brand-ink: 9 15 26;
+  --ember: 255 128 90;
+  --ok: 74 200 140;
+  --warn: 235 170 70;
+  --bad: 255 110 110;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: rgb(var(--canvas));
+  color: rgb(var(--ink));
+  font-family: 'DM Sans', ui-sans-serif, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-image:
+    radial-gradient(60rem 28rem at 85% -10%, rgb(var(--ember) / 0.1), transparent 60%),
+    radial-gradient(50rem 30rem at -10% 0%, rgb(120 150 200 / 0.14), transparent 60%);
+  background-attachment: fixed;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Space Grotesk', ui-sans-serif, sans-serif;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+.num {
+  font-variant-numeric: tabular-nums;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid rgb(var(--ember));
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, rgb(var(--sunk)) 25%, rgb(var(--line) / 0.7) 50%, rgb(var(--sunk)) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s linear infinite;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
